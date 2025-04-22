@@ -1,0 +1,242 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  animation: respirar 20s ease-in-out infinite;
+}
+
+.estrellas {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.1;
+  z-index: 0;
+  animation: estrellasBrillo 5s infinite ease-in-out alternate;
+}
+
+@keyframes estrellasBrillo {
+  from { opacity: 0.1; }
+  to { opacity: 0.2; }
+}
+
+@keyframes respirar {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+}
+
+.titulo {
+  z-index: 2;
+  font-size: 2.7rem;
+  text-align: center;
+  font-weight: 900;
+  margin-top: 60px;
+  animation: aparecer 2s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes aparecer {
+  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(-30px); }
+}
+
+.flores-container {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  z-index: 1;
+}
+
+.esquina-izquierda {
+  bottom: 10px;
+  left: 10px;
+}
+
+.esquina-derecha {
+  bottom: 10px;
+  right: 10px;
+}
+
+.flor {
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle, pink 40%, deeppink 60%);
+  border-radius: 50%;
+  position: relative;
+  animation: moverFlor 3s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.flor::before,
+.flor::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle, pink 40%, deeppink 60%);
+  border-radius: 50%;
+}
+
+.flor::before { top: -13px; left: 0; }
+.flor::after  { top: 0; left: -13px; }
+
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1s; }
+.delay-3 { animation-delay: 1.5s; }
+
+@keyframes moverFlor {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50%     { transform: rotate(3deg) translateY(-2px); }
+}
+
+.contenido-principal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 10%;
+  gap: 30px;
+  flex-wrap: wrap;
+  z-index: 2;
+  position: relative;
+}
+
+.columna-cartas {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-width: 250px;
+}
+
+.izquierda {
+  align-items: flex-end;
+}
+
+.derecha {
+  align-items: flex-start;
+}
+
+.corazon-grande {
+  width: 90px;
+  height: 90px;
+  background: red;
+  transform: rotate(-45deg);
+  position: relative;
+  animation: latido 1s infinite ease-in-out;
+  margin: 30px auto;
+}
+
+.corazon-grande::before,
+.corazon-grande::after {
+  content: '';
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: red;
+  border-radius: 50%;
+}
+
+.corazon-grande::before {
+  top: -45px;
+  left: 0;
+}
+
+.corazon-grande::after {
+  top: 0;
+  left: 45px;
+}
+
+@keyframes latido {
+  0%, 100% { transform: scale(1) rotate(-45deg); }
+  50%     { transform: scale(1.1) rotate(-45deg); }
+}
+
+.carta {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: entrarCarta 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes entrarCarta {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.carta:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .contenido-principal {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 30px 20px;
+  }
+
+  .columna-cartas {
+    align-items: center;
+  }
+
+  .corazon-grande {
+    width: 60px;
+    height: 60px;
+  }
+
+  .corazon-grande::before,
+  .corazon-grande::after {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.subtitulos {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  color: white;
+  font-weight: 500;
+  opacity: 0;
+  animation: aparecerLetra 0.5s ease forwards;
+  animation-delay: 0s;
+  min-height: 1.5em;
+}
+
+@keyframes aparecerLetra {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.play-icon {
+    position: absolute;
+    top: 40%; /* lo bajamos un poco */
+    left: 60%;
+    transform: translate(-40%, -50%);
+    color: white;
+    font-size: 2.2rem;
+    pointer-events: none;
+    z-index: 3;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.6); /* le da contraste con el rojo */
+  }
+  

@@ -1,0 +1,45 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(#ffd1dc, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  max-width: 500px;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.text {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  min-height: 100px;
+}
+
+button {
+  margin-top: 2rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #ff69b4;
+  color: white;
+  cursor: pointer;
+}

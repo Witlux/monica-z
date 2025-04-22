@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zarzamora</title>
+  <link rel="stylesheet" href="sorpresa.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="estrellas"></div>
+
+  <div class="flores-container esquina-izquierda">
+    <div class="flor delay-1"></div>
+    <div class="flor delay-2"></div>
+    <div class="flor delay-3"></div>
+  </div>
+
+  <div class="flores-container esquina-derecha">
+    <div class="flor delay-1"></div>
+    <div class="flor delay-2"></div>
+    <div class="flor delay-3"></div>
+  </div>
+
+  <h1 class="titulo"> 🎂Feliz cumpleaños 🎂 </h1>
+
+  <div class="contenido-principal">
+    <div class="columna-cartas izquierda">
+      <div class="carta">Eres lo mejor que me ha pasado 💖</div>
+      <div class="carta">Tú y yo contra el universo ✨ </div>
+    </div>
+
+    <div class="corazon-grande" onclick="toggleAudio()">
+      <div class="play-icon">▶</div>
+    </div>
+
+    <div class="columna-cartas derecha">
+      <div class="carta">Gracias por estar en mi vida 🌟</div>
+      <div class="carta">Siempre contigo, incluso en la distancia 💐 </div>
+    </div>
+  </div>
+
+  <!-- Subtítulos -->
+  <div id="lyrics" class="subtitulos"></div>
+
+  <!-- Reproductor de audio -->
+  <audio id="song" src="Something About Us  Adaptación Español (Spanish Version)  D4ve - D4ve.mp3"></audio>
+
+  <script src="sorpesa.js"></script>
+</body>
+</html>
